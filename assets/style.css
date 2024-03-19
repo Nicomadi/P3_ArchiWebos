@@ -47,12 +47,20 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
+
+:root{
+	--login-text-color: #3D3D3D
+}
+
 body {
 	max-width: 1140px;
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+
+/******************** Header ********************/
+
 header {
 	display: flex;
 	justify-content: space-between;
@@ -98,6 +106,9 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
+/******************** Introduction********************/
+
 #introduction {
 	display: flex;
 	align-items: center;
@@ -121,6 +132,9 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
+/******************** Portefolio ********************/
+
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
@@ -169,30 +183,26 @@ li:hover {
 	width: 50%;
 margin: auto;
 }
-#contact > * {
-	text-align: center;
 
-}
-#contact h2{
-	margin-bottom: 20px;
-}
-#contact form {
+/******************** Formulaire ********************/
+
+form {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input {
+input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+label {
 	margin: 2em 0 1em 0;
 }
-#contact textarea {
+textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -207,6 +217,47 @@ input[type="submit"]{
 	text-align: center;
 	border-radius: 60px ;
 }
+
+
+/******************** Log In ********************/
+
+
+
+.login-page{
+	
+	align-items: center;
+	width: 100%;	
+	margin-bottom: 250px;
+}
+
+.login-input{
+	width: 380px; ;
+}
+
+.login-section{
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	
+}
+
+.login-text{
+	color: var(--login-text-color);
+}
+
+
+
+/******************** Contact ********************/
+
+#contact > * {
+	text-align: center;
+
+}
+#contact h2{
+	margin-bottom: 20px;
+}
+
 
 footer nav ul {
 	display: flex;
