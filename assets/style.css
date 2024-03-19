@@ -105,6 +105,11 @@ nav li {
 
 li:hover {
 	color: #B1663C;
+	cursor: pointer;
+}
+
+.login-choosen{
+	font-weight: 600;
 }
 
 /******************** Introduction********************/
@@ -140,6 +145,17 @@ li:hover {
 	margin-bottom: 1em;
 }
 
+.portfolio-title{
+	
+}
+.modify-btn{
+	color: black;
+	text-decoration: none;
+	font-size: 14px;
+	padding:0 15px;
+}
+
+
 .filters{
 	width: 100%;
 	margin-bottom: 1em;
@@ -159,6 +175,10 @@ li:hover {
 	font-size: 16px;
 	font-weight: 700;
 	padding: 10px 10px;
+}
+
+.filter-btn:hover{
+	cursor: pointer; 
 }
 
 .filter-selected{

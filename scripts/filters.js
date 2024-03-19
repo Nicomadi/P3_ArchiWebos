@@ -3,6 +3,10 @@ import {galleryElementCreation} from './gallery.js'
 //Création de tous les boutons filtres
 export function allFilterButtonsCreation (works) {
 
+
+    // TO DO : AMELIORER LA RECUPERATION DES CATEGORIE EN UTILISANT /CATEGORIES ?
+
+
     //On récupère les différentes catégories en évitant les doublons
     const categoryCount = new Set()
     const categoryName = new Set()
