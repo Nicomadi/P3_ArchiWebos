@@ -1,11 +1,10 @@
 import {allFilterButtonsCreation} from './filters.js'
 import {galleryElementCreation} from './gallery.js'
 import {logInBtnManagement} from "./login.js"
+import { initialisationModal } from './modal.js'
 
 const apiURL = `http://localhost:5678/api/works`
 
-
-const penToSquare =`<i class="fa-regular fa-pen-to-square"></i>`
 
 if (window.sessionStorage.getItem("token")) {
     console.log("Connecté")
@@ -17,6 +16,7 @@ async function fetchData() {
     const data = await response.json()
     allFilterButtonsCreation(data)
     galleryElementCreation(data)
+    initialisationModal(data)
 }
 
 logInBtnManagement(window.sessionStorage.getItem("token"))

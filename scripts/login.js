@@ -1,7 +1,6 @@
 // sophie.bluel@test.tld
 // mdp : S0phie 
 
-import {addModifyButton} from "./gallery.js"
 
 // Recuperation des élements du DOM
 const formLogin = document.querySelector(".login-page")
@@ -26,6 +25,8 @@ export function submitLogin(){
 
 function verificationLogin(data){
     if (!data.token) {
+
+        // TO DO meilleur message d'information d'erreur
         alert("User not found")
     } else {
         window.sessionStorage.setItem("token", data.token)
@@ -37,8 +38,8 @@ function verificationLogin(data){
 export function logInBtnManagement(boolean){
     if (boolean) {
         loginBtn.textContent ="log out"
-        addModifyButton()
         loginBtn.addEventListener("click", ()=>{
+            console.log(loginBtn.getev)
             logOut()
         })
     }else{
@@ -49,7 +50,11 @@ export function logInBtnManagement(boolean){
 }
 
 function logIn(){
-    loginBtn.style.fontWeight ="600"
+    if (loginBtn.style.fontWeight === "600") {
+        loginBtn.style.fontWeight = "400"
+    }else{
+        loginBtn.style.fontWeight ="600"
+    }
     mainPage.hidden = loginPage.hidden
     loginPage.hidden = !mainPage.hidden
     submitLogin()
