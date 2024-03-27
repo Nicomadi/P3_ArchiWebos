@@ -4,22 +4,20 @@ import {logInBtnManagement} from "./login.js"
 import { initialisationModal } from './modal.js'
 
 const apiURL = `http://localhost:5678/api/works`
+let isConected = window.sessionStorage.getItem("token")
 
-
-if (window.sessionStorage.getItem("token")) {
-    console.log("Connecté")
-}
 
 //Récupération et conversion des éléments via l'API +
 async function fetchData() {
     const response = await fetch(apiURL)
     const data = await response.json()
-    allFilterButtonsCreation(data)
+    allFilterButtonsCreation(data,isConected)
     galleryElementCreation(data)
     initialisationModal(data)
+    console.log("fetch terminé")
 }
 
-logInBtnManagement(window.sessionStorage.getItem("token"))
+logInBtnManagement(isConected)
 fetchData()
 
 

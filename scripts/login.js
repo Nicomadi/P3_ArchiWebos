@@ -10,7 +10,7 @@ const loginPage = document.querySelector(".login-div")
 const mainPage = document.querySelector(".main-div")
 const loginBtn = document.querySelector(".login-btn")
 
-export function submitLogin(){
+function submitLogin(){
     formLogin.addEventListener("submit",(event)=>{
         event.preventDefault()
         const idAndPassword = JSON.stringify({"email":emailInput.value, "password": passwordInput.value })

@@ -1,12 +1,25 @@
 import {galleryElementCreation} from './gallery.js'
 
+export let categories = []
+
 //Création de tous les boutons filtres
-export function allFilterButtonsCreation (works) {
+export function allFilterButtonsCreation (works, isConected) {
 
 
     // TO DO : AMELIORER LA RECUPERATION DES CATEGORIE EN UTILISANT /CATEGORIES ?
 
+    collectCategories(works)
+    //Création des boutons
+    const filterButtonsParent = document.querySelector(".filters")
+    if (!isConected) {
+        for (let i = 0 ; i < categories.length; i++) {
+            filterButtonCreation(filterButtonsParent,categories[i].id,categories[i].name,works)
+        }
+    }
+}
 
+//Récupération des catégories
+function collectCategories(works){
     //On récupère les différentes catégories en évitant les doublons
     const categoryCount = new Set()
     const categoryName = new Set()
@@ -19,15 +32,12 @@ export function allFilterButtonsCreation (works) {
     // Transformation du Set en Liste
     const categoryCountArray = [...categoryCount]
     const categoryNameArray = [...categoryName]
-
-    //Création des boutons
-    const filterButtonsParent = document.querySelector(".filters")
-
-
-    for (let i = 0 ; i < categoryCountArray.length; i++) {
-        filterButtonCreation(filterButtonsParent,categoryCountArray[i],categoryNameArray[i],works)
-    }
     
+    if (categoryCountArray.length === categoryNameArray.length) {
+        for (let i = 0; i < categoryCountArray.length; i++) {
+            categories.push( {id: categoryCountArray[i], name: categoryNameArray[i]})
+        }
+    }
 }
 
 // Creation d'un bouton filtre

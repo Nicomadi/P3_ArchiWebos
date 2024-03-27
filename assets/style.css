@@ -51,7 +51,10 @@ table {
 *{box-sizing: border-box;}
 
 :root{
-	--login-text-color: #3D3D3D
+	--login-text-color: #3D3D3D;
+	--add-photo-bg: #E8F1F6;
+	--add-photo-element: #CBD6DC;
+	--add-photo-txt: #444;
 }
 
 body {
@@ -83,12 +86,12 @@ body {
 /******************** Modal ********************/
 
 .modal{
+	z-index: 1;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100% ;
 	height: 100%;
-	padding: 15px;
 	background: rgba(0, 0, 0, 0.8);
 	display: flex;
 	flex-direction: column;
@@ -97,15 +100,14 @@ body {
 }
 
 .modal-container{
+	box-sizing: border-box;
 	background-color: #fff;
 	max-width: 630px ;
 	height: 670px;
 	width: 100%;
 	border-radius: 10px;
-	gap: 1em;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
 	align-items: center;
 }
 
@@ -139,23 +141,59 @@ body {
 	color: black;
 	font-size: 26px;
 	font-weight: 400;
-	margin-bottom: 40px;
+	margin-bottom: 45px;
 }
 
-.gallery-modal{
+.modal-form{
+	flex-grow: 1;
+	margin-top: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 0 105px;
+}
+.modal-form-content{
+	flex-grow: 1;
+	border-bottom: solid 1px #3B3B3B;
+	width: 100%;
+	align-items: stretch;
+
+}
+
+.modal-form>button{
+	border: none;
+	width: 240px;
+	margin-top: 38px;
+	padding: 10px 50px;
+	margin-bottom: 45px;
+	color: white;
+	background-color: #1D6154;
+	border-radius: 60px;
+}
+
+.modal-form>button:disabled{
+	background-color: #a7a7a7;
+}
+
+.edit-gallery-container{
+	height: 100%;
+	max-height: 410px;
 	display: flex;
 	flex-wrap: wrap;
-	align-items: star;
+	align-content: flex-start;
 	column-gap: 10px;
-	row-gap: 30px;
-	border-bottom: solid 1px #3B3B3B;
-	flex-basis: 100%;
+	row-gap: 20px;
+	background-color: #fff;
 	overflow: auto;
-	margin: 0 105px;
+	
 }
 
 .work-container{
-	max-width: 76px;
+	flex-basis: 18%;
+	flex-grow: 1;
+	max-width: 18%;
+	height: fit-content;
 	position: relative;
 }
 
@@ -179,15 +217,86 @@ body {
 	align-items: center;
 }
 
-.modal-container>button{
-	width: 240px;
-	margin-top: 38px;
-	padding: 10px 50px;
-	margin-bottom: 45px;
-	color: white;
-	background-color: #1D6154;
-	border-radius: 60px;
+.fa-trash-can:hover{
+	cursor: pointer;
 }
+
+/******************** Ajout photo Modale ********************/
+
+.add-photo-container{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.add-photo-area{
+	position: relative;
+	background-color: var(--add-photo-bg);
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	text-align: center;
+}
+
+.add-photo-area>img{
+	position: absolute;
+	height:100%;
+	overflow: auto;
+}
+
+.add-photo-area-no-file{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	margin-bottom: 10px;
+	height: 169px;
+}
+
+.add-photo-area-no-file>i{
+	margin-top: 15px;
+	width: 76px;
+	height: 76px;
+	font-size: 76px;
+	color: var(--add-photo-element) ;
+}
+
+#add-photo-input{
+	position: absolute;
+	background-color: red;
+	width: 100%;
+	height: 100%;
+}
+
+.add-photo-area-no-file>label{
+	background-color: var(--add-photo-element) ;
+	border-radius: 50px;
+	padding: 10px 33px;
+	margin: 10px 0 7px;
+}
+
+.add-photo-area-no-file>label:hover{
+	cursor: pointer;
+}
+
+.add-photo-area-no-file>p{
+	font-size: 10px;
+	margin-bottom: 20px;
+}
+
+.add-photo-container>label{
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.add-photo-container>label:hover{
+	cursor: pointer;
+}
+
 /******************** Header ********************/
 
 header {
@@ -271,12 +380,18 @@ li:hover {
 
 /******************** Portefolio ********************/
 
+#portfolio{
+}
+
 #portfolio h2 {
+	position: relative;
 	text-align: center;
 	margin-bottom: 1em;
 }
 
 .modify-btn{
+	position: absolute;
+	top: 10px;
 	color: black;
 	text-decoration: none;
 	font-size: 14px;
@@ -341,12 +456,17 @@ form {
 	flex-direction: column;
 }
 
-input {
+input, select{
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
+select{
+	background-color: white;
+}
+
 label {
 	margin: 2em 0 1em 0;
 }
